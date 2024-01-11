@@ -42,6 +42,26 @@ java_binary(
 )
 
 java_binary(
+    name = "Evaluator",
+    srcs = ["Evaluator.java"],
+    deps = [
+        "//contrib/main/java/flora/meter/contrib",
+        "//experiments/main/java/flora/experiments/sunflow",
+        "//experiments/main/java/flora/experiments/sunflow/image",
+        "//experiments/main/java/flora/experiments/sunflow/scenes",
+        "//src/main/java/flora",
+        "//src/main/java/flora/knob",
+        "//src/main/java/flora/knob/meta",
+        "//src/main/java/flora/meter",
+        "@janino//jar",
+        "@sunflow//jar",
+    ],
+    data = [
+        "//eflect_rapl/src/main/native:libCPUScaler.so",
+    ],
+)
+
+java_binary(
     name = "PowercapDriver",
     srcs = ["PowercapDriver.java"],
     deps = [
